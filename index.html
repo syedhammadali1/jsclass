@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <span id="home">home </span>
+        <span id="about">about</span>
+        <span id="category" > categoies</span>
+        <input type="text" id="name">
+
+            <div id="home-div" style="height: 100px; width: 100; background-color: black;display: none;">
+                    <h1 style='color: white;'>home</h1>
+            </div>
+            <div id="about-div" style="height: 100px; width: 100; background-color: black;display: none;">
+                    <h1 style='color: white;'>abut</h1>
+            </div>
+            <div id="category-div" style="height: 100px; width: 100; background-color: black;display: none;">
+                    <h1 style='color: white;'>categories</h1>
+            </div>
+    </nav>
+
+
+    <script>
+document.getElementById('home').addEventListener('mouseenter', () => {
+    document.getElementById('home-div').style.display = 'block';
+})
+document.getElementById('home-div').addEventListener('mouseenter', () => {
+    document.getElementById('home-div').style.display = 'block';
+})
+
+document.getElementById('home').addEventListener('mouseleave', () => {
+    document.getElementById('home-div').style.display = 'none';
+})
+
+document.getElementById('home-div').addEventListener('mouseleave', () => {
+    document.getElementById('home-div').style.display = 'none';
+})
+
+// 
+document.getElementById('about').addEventListener('mouseenter', () => {
+    document.getElementById('about-div').style.display = 'block';
+})
+document.getElementById('about-div').addEventListener('mouseenter', () => {
+    document.getElementById('about-div').style.display = 'block';
+})
+
+document.getElementById('about').addEventListener('mouseleave', () => {
+    document.getElementById('about-div').style.display = 'none';
+})
+
+document.getElementById('about-div').addEventListener('mouseleave', () => {
+    document.getElementById('about-div').style.display = 'none';
+})
+//
+document.getElementById('category').addEventListener('mouseenter', () => {
+    document.getElementById('category-div').style.display = 'block';
+})
+document.getElementById('category-div').addEventListener('mouseenter', () => {
+    document.getElementById('category-div').style.display = 'block';
+})
+
+document.getElementById('category').addEventListener('mouseleave', () => {
+    document.getElementById('category-div').style.display = 'none';
+})
+
+document.getElementById('category-div').addEventListener('mouseleave', () => {
+    document.getElementById('category-div').style.display = 'none';
+})
+// 
+
+document.querySelector('#name').addEventListener('keyup',(event) => {
+if (event.target.value == 'hassan') {
+    console.log('hassan')
+} else {
+    // alert('non hassan')
+    // event.target.value = '' 
+}    
+})
+
+
+    </script>
+</body>
+</html>

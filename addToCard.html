@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add to Cart Example</title>
+</head>
+<body>
+  <h1>Product Catalog</h1>
+  <ul id="product-list">
+    <li data-id="1">Product 1 - $10</li>
+    <li data-id="2">Product 2 - $20</li>
+    <li data-id="3">Product 3 - $30</li>
+    <!-- Add more products here -->
+  </ul>
+  <h1>Shopping Cart</h1>
+  <p id="count"></p>
+  amount <p id="amount"></p>
+  <ul id="cart">
+    <!-- Cart items will be displayed here -->
+  </ul>
+
+  <script>
+    // Array to store the items in the cart
+    let cartItems = [];
+    let amount = 0;
+    // Function to add an item to the cart
+    function addToCart(productId, productName, productPrice) {
+      cartItems.push({
+        id: productId,
+        name: productName,
+        price: productPrice
+      });
+
+      amount = amount + productPrice;
+
+      document.getElementById('amount').innerText = amount;
+
+      // Call function to update the cart display
+      updateCartDisplay();
+    }
+
+    // Function to update the cart display
+    function updateCartDisplay() {
+      const cartList = document.getElementById("cart");
+      cartList.innerHTML = ""; // Clear previous items
+
+      cartItems.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${item.name} - $${item.price}`;
+        cartList.prepend(listItem);
+      });
+
+      document.getElementById('count').innerHTML= cartItems.length
+    }
+
+    // Event listener to add items to the cart when clicked
+    document.getElementById("product-list").addEventListener("click", function(event) {
+      const target = event.target;
+      if (target.tagName === "LI") {
+        const productId = target.getAttribute("data-id");
+        const productName = target.textContent.split(" - ")[0];
+        const productPrice = parseFloat(target.textContent.split(" - $")[1]);
+        addToCart(productId, productName, productPrice);
+      }
+    });
+  </script>
+</body>
+</html>
